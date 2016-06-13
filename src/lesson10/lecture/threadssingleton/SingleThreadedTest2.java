@@ -5,13 +5,13 @@ public class SingleThreadedTest2 {
 	public static void main(String[] args) {
 		for(int i = 0; i < 10; ++i) {
 			createAndStartThread();
-			System.out.println("Num instances: " + Singleton.counter);		
+			System.out.println("Num instances: " + Singleton2.counter);		
 		}
 	}
 	public static void createAndStartThread() {
 		Runnable r = () -> {
 			for(int i = 0; i < 1000; ++i) {
-				Singleton.getInstance();
+				Singleton2.getInstance();
 			}		
 		};
 		new Thread(r).start();

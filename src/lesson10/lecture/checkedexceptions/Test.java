@@ -3,8 +3,7 @@ package lesson10.lecture.checkedexceptions;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-
-import com.sun.istack.internal.logging.Logger;
+import java.util.logging.Logger;
 
 public class Test {
 
@@ -36,7 +35,7 @@ public class Test {
 			PrintWriter w = new PrintWriter(f);
 			//do something
 		} catch(IOException e) {
-			Logger log = Logger.getLogger(Test.class);
+			Logger log = Logger.getLogger("");
 			log.warning("IOException thrown in Test.write3 method. File is " + f.getAbsolutePath());
 			throw e;
 		}

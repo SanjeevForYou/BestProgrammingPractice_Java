@@ -1,3 +1,4 @@
+import java.io.IOException;
 
 public class TestingException {
 
@@ -10,7 +11,7 @@ public class TestingException {
 			for (int i = 0; i < 6; i++) {
 				strary[i] ="san";
 				
-				if(i == 4) throw new Exception("");
+				if(i == 4) throw new IOException("");
 			}
 			
 		} catch (NullPointerException e) {
@@ -19,6 +20,9 @@ public class TestingException {
 		}catch (ArrayIndexOutOfBoundsException e) {
 			// TODO: handle exception
 			System.out.println("Exception occur out of arrya");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
