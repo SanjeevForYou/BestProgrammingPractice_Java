@@ -11,10 +11,10 @@ public class TDDPraTest {
 
 	@Test
 	public void test() {
-		//fail("Not yet implemented");
-		
-		List<String> words = Arrays.asList("sanje","bhusal");
-		List<String> changedWords = Arrays.asList("sanjE","bhusaL");
+		// fail("Not yet implemented");
+
+		List<String> words = Arrays.asList("sanje", "bhusal");
+		List<String> changedWords = Arrays.asList("sanjE", "bhusaL");
 		TDDPractice tp1 = new TDDPractice();
 		assertEquals(changedWords, tp1.changeLastCharToUpper(words));
 	}
