@@ -5,9 +5,8 @@ import java.util.stream.Collectors;
 
 public class TDDPractice {
 
-	List<String> changeLastCharToUpper(List<String> words) {
-		
-		words.stream().map(s -> changeToUpper(s)).forEach(System.out::println);
+	List<String> changeLastCharToUpper(List<String> words) {	
+		//words.stream().map(s -> changeToUpper(s)).forEach(System.out::println);
 		
 		List<String> changedoutput = words.stream().map(s -> changeToUpper(s)).collect(Collectors.toList());
 		return changedoutput;
