@@ -7,28 +7,19 @@ import java.util.stream.Collectors;
 
 public class FixThis {
 	//This method creates a compiler error -- try to fix it
-	List<String> processList(List<String> list) throws InputTooLongException {
+	List<String> processList(List<String> list) {
 		
-			List<String>  result = new ArrayList<>();
-			result = list.stream()
-					   .map(x -> {
-						   try {
-							   return this.doNothingIfShort(x);
-						} catch (InputTooLongException e) {
-							// TODO: handle exception
-							return e.getMessage();
-						}}) // This will fail to compile 
-			           .collect(Collectors.toList());	
-	return result;
+		FunctionWithException<String, String> str = (s) -> this.doNothingIfShort(s);
+	    return list.stream().map(s -> FunctionWithException.unchecked(str).apply(s)).collect(Collectors.toList());
 	}
 	
 	 
-	 String doNothingIfShort(String input) throws InputTooLongException {
+	 String doNothingIfShort(String input) {
 		 try {
 			 if (input.length() > 3) throw new InputTooLongException();
 		} catch (InputTooLongException e) {
 			// TODO: handle exception
-			throw e;
+			throw new RuntimeException(e);
 		}
 	   return input;
 	}
@@ -36,16 +27,9 @@ public class FixThis {
 	public static void main(String[] args) {
 		FixThis ft = new FixThis();
 		List<String> words1 = Arrays.asList("not", "too", "big", "yet");
-		
-		System.out.println("What happern");
-		try {
+	
 			System.out.println(ft.processList(words1));
-			
-			System.out.println("What happern");
-		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println("Error :" + e.getMessage());
-		}
+			System.out.println(ft.processList(words1));
 	
 	}
 	

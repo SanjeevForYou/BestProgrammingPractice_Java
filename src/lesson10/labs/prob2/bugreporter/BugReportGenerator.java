@@ -68,7 +68,6 @@ public class BugReportGenerator {
 			writer = new BufferedWriter(new FileWriter(logFile));
 
 			for (BugDomain bug : bugs) {
-				;
 				if (bug.getClassName() != "") {
 					writer.write(bug.getName());
 					writer.newLine();
