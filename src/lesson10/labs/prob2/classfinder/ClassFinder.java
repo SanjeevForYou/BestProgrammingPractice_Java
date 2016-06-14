@@ -31,6 +31,7 @@ public class ClassFinder {
 	        for (File file : scannedDir.listFiles()) {
 	            classes.addAll(find(file, scannedPackage));
 	        }
+	        System.out.println("Find class as bugreport");
 	        return classes;
 	    }
 
